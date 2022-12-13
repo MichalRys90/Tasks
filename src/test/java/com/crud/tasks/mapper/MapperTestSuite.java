@@ -15,6 +15,8 @@ public class MapperTestSuite {
 
     @Autowired
     private TrelloMapper trelloMapper;
+    @Autowired
+    private TaskMapper taskMapper;
 
     @Test
     void testTrelloMapper() {
@@ -44,5 +46,25 @@ public class MapperTestSuite {
         assertEquals("name1", trelloListDtos1.get(1).getName());
         assertEquals("pos", trelloCard.getPos());
         assertEquals("1", trelloCardDto1.getListId());
+    }
+
+    @Test
+    void testTaskMapper() {
+        //Given
+        Task task1 = new Task(1L, "title1", "content1");
+        Task task2 = new Task(2L, "title2", "content2");
+        List<Task> tasks = new ArrayList<>();
+        tasks.add(task1);
+        tasks.add(task2);
+
+        //When
+        TaskDto taskDto = taskMapper.mapToTaskDto(task1);
+        Task task = taskMapper.mapToTask(taskDto);
+        List<TaskDto> taskDtos = taskMapper.mapToTaskDtoList(tasks);
+
+        //Then
+        assertEquals("title1", taskDto.getTitle());
+        assertEquals("content1", task.getContent());
+        assertEquals(2, taskDtos.size());
     }
 }
