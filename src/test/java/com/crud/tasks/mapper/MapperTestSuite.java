@@ -61,7 +61,7 @@ public class MapperTestSuite {
         TaskDto taskDto = taskMapper.mapToTaskDto(task1);
         Task task = taskMapper.mapToTask(taskDto);
         List<TaskDto> taskDtos = taskMapper.mapToTaskDtoList(tasks);
-
+        
         //Then
         assertEquals("title1", taskDto.getTitle());
         assertEquals("content1", task.getContent());
