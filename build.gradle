@@ -33,6 +33,7 @@ dependencies {
 	runtimeOnly 'org.postgresql:postgresql:42.5.1'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'com.google.code.gson:gson'
 
 //	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 }
