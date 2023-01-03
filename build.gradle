@@ -20,7 +20,7 @@ repositories {
 }
 
 jar {
-//	enabled = false
+	enabled = false
 }
 
 dependencies {
