@@ -3,12 +3,12 @@ FROM openjdk:17-jdk-alpine
 
 ARG MYSQL_DB_URL
 ENV MYSQL_DB_URL ${MYSQL_DB_URL?notset}
-WORKDIR C:/dev/My-Project/tasks
+WORKDIR /dev/My-Project/tasks
 
 COPY . .
 
 RUN addgroup -g 1001 -S appuser && adduser -u 1001 -S appuser -G appuser
-RUN chown -R 1001:1001 C:/dev/My-Project/tasks
+RUN chown -R 1001:1001 /dev/My-Project/tasks
 RUN ls
 USER 1001
 
