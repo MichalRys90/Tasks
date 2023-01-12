@@ -28,6 +28,18 @@ public class EmailScheduler {
         );
     }
 
+    @Scheduled(fixedDelay = 10000)
+    public void sendInformationEmail2() {
+        long size = taskRepository.count();
+        simpleEmailService.sendCount(
+                Mail.builder()
+                        .mailTo(adminConfig.getAdminMail())
+                        .subject(SUBJECT)
+                        .message("I remind you that")
+                        .build()
+        );
+    }
+
     private String messageCreator(long size) {
         String message = "Currently in database you got: " + size + " task";
         return size == 1 ? message : message + "s";
