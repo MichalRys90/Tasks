@@ -28,7 +28,7 @@ public class EmailScheduler {
         );
     }
 
-    @Scheduled(fixedDelay = 10000)
+    @Scheduled(cron = "0 0 10 * * *")
     public void sendInformationEmail2() {
         long size = taskRepository.count();
         simpleEmailService.sendCount(
